@@ -5,9 +5,23 @@ let scoreX = 0;
 let scoreO = 0;
 let scoreDraw = 0;
 
-function game(btn) {
+// LocalStorage'dan skorlari Aliyoruz
+let storedScores = JSON.parse(localStorage.getItem("sosScores"));
 
-  console.log("Tıklandı");
+if (storedScores) {
+  scoreX = storedScores.x;
+  scoreO = storedScores.o;
+  scoreDraw = storedScores.draw;
+} else {
+  scoreX = 0;
+  scoreO = 0;
+  scoreDraw = 0;
+
+  // Ilk Acilista localStorage Olusturuyoruz
+  saveScores();
+}
+
+function game(btn) {
 
   if (!gameActive) {
     return;
@@ -58,13 +72,18 @@ function checkWinner() {
 
       if (buttons[a].innerHTML === "X") {
         scoreX++;
-        console.log(scoreX);
+        saveScores();
+        console.log("X'in Puani : "+scoreX);
       }
 
       if (buttons[a].innerHTML === "O") {
         scoreO++;
-        console.log(scoreO);
+        saveScores();
+        console.log("O'nun Puani : "+scoreO);
       }
+
+      // Oyundaki Score Durumunu Kaydediyoruz
+      saveScores();
 
       // Kazanma Durumu Olursa Kullaniciyi Bilgilendiriyoruz
       alert(buttons[a].innerHTML + " kazandı!");
@@ -77,8 +96,9 @@ function checkWinner() {
   }
 
   // Beraberlik Kontrolu
-  let isDraw = true;
-
+  // let isDraw = true;
+  let isDraw = Array.from(buttons).every(btn => btn.innerHTML !== "");
+  
   for (let i = 0; i < buttons.length; i++) {
     if (buttons[i].innerHTML === "") {
       isDraw = false;
@@ -88,8 +108,19 @@ function checkWinner() {
 
   if (isDraw) {
     scoreDraw++;
+    saveScores();
     console.log(scoreDraw);
     alert("Oyun berabere!");
     gameActive = false;
   }
+}
+
+function saveScores() {
+  let scores = {
+    x: scoreX,
+    o: scoreO,
+    draw: scoreDraw
+  };
+
+  localStorage.setItem("sosScores", JSON.stringify(scores));
 }
