@@ -1,6 +1,10 @@
 let currentPlayer = "X";
 let gameActive = true;
 
+let scoreX = 0;
+let scoreO = 0;
+let scoreDraw = 0;
+
 function game(btn) {
 
   console.log("Tıklandı");
