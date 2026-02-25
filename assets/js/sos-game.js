@@ -21,6 +21,11 @@ if (storedScores) {
   saveScores();
 }
 
+// Skor Sonuclarini Dom Uzerinden index.html Dosyasina Yazdiriyoruz
+scoreXResult.innerText = scoreX;
+scoreOResult.innerText = scoreO;
+scoreDrawResult.innerText = scoreDraw;
+
 function game(btn) {
 
   if (!gameActive) {
@@ -73,13 +78,19 @@ function checkWinner() {
       if (buttons[a].innerHTML === "X") {
         scoreX++;
         saveScores();
-        console.log("X'in Puani : "+scoreX);
+        scoreXResult.innerText = scoreX;
+        alert("X'in Puani : " + scoreX);
+        console.log("X'in Puani : " + scoreX);
+        console.log("X'in Puani : " + scoreXResult.value.innerText);
       }
 
       if (buttons[a].innerHTML === "O") {
         scoreO++;
         saveScores();
-        console.log("O'nun Puani : "+scoreO);
+        scoreOResult.innerText = scoreO;
+        alert("O'nun Puani : " + scoreO);
+        console.log("O'nun Puani : " + scoreO);
+        console.log("O'nun Puani : " + scoreOResult.value.innerText);
       }
 
       // Oyundaki Score Durumunu Kaydediyoruz
@@ -98,7 +109,7 @@ function checkWinner() {
   // Beraberlik Kontrolu
   // let isDraw = true;
   let isDraw = Array.from(buttons).every(btn => btn.innerHTML !== "");
-  
+
   for (let i = 0; i < buttons.length; i++) {
     if (buttons[i].innerHTML === "") {
       isDraw = false;
@@ -109,7 +120,13 @@ function checkWinner() {
   if (isDraw) {
     scoreDraw++;
     saveScores();
-    console.log(scoreDraw);
+
+    scoreDrawResult.innerText = scoreDraw;
+    
+    alert("X ve O Beraberlik Puani : " + scoreDraw);
+    console.log("X ve O Beraberlik Puani : " + scoreDraw);
+    console.log("X ve O Beraberlik Puani : " + scoreOResult.value.innerText);
+    
     alert("Oyun berabere!");
     gameActive = false;
   }
