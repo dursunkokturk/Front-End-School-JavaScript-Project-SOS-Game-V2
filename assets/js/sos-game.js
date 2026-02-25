@@ -55,7 +55,15 @@ function checkWinner() {
     /* Butona Tiklandiginda Cikan Sonuclari Karsilastiriyoruz
       Ayni Hizada 3 Tane X Yada O Denk Gelirse Kazanma Durumu Gerceklesiyor */
     if (buttons[a].innerHTML !== "" && buttons[a].innerHTML === buttons[b].innerHTML && buttons[a].innerHTML === buttons[c].innerHTML) {
-      
+
+      if (buttons[a].innerHTML === "X") {
+        scoreX++;
+      }
+
+      if (buttons[a].innerHTML === "O") {
+        scoreO++;
+      }
+
       // Kazanma Durumu Olursa Kullaniciyi Bilgilendiriyoruz
       alert(buttons[a].innerHTML + " kazandı!");
 
