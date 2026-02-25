@@ -58,10 +58,12 @@ function checkWinner() {
 
       if (buttons[a].innerHTML === "X") {
         scoreX++;
+        console.log(scoreX);
       }
 
       if (buttons[a].innerHTML === "O") {
         scoreO++;
+        console.log(scoreO);
       }
 
       // Kazanma Durumu Olursa Kullaniciyi Bilgilendiriyoruz
@@ -85,6 +87,8 @@ function checkWinner() {
   }
 
   if (isDraw) {
+    scoreDraw++;
+    console.log(scoreDraw);
     alert("Oyun berabere!");
     gameActive = false;
   }
