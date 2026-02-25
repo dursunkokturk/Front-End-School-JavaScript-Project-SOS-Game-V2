@@ -124,3 +124,15 @@ function saveScores() {
 
   localStorage.setItem("sosScores", JSON.stringify(scores));
 }
+
+function resetGame() {
+  // Tum Butonlari Seciyoruz
+  let buttons = document.querySelectorAll(".click");
+
+  // Tum Butonlarin Icini Temizliyoruz
+  buttons.forEach(btn => btn.innerHTML = "");
+
+  gameActive = true;
+  currentPlayer = "X";
+  saveScores();
+}
