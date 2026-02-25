@@ -1,13 +1,98 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: system-ui, Arial, Helvetica, sans-serif;
+  background-color: #f3f4f6;
+}
+
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.container h2 {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  color: #1f2937;
+}
+
 .buttons {
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
   justify-content: center;
-  padding: 100px;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.click {
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.click:hover {
+  background-color: #d1d5db;
+  transform: scale(1.05);
+}
+
+/* X ve O renkleri */
+.click:contains("X") {
+  color: #2563eb;
+}
+
+.click:contains("O") {
+  color: #ef4444;
+}
+
+
+.scoreResults {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.scoreResults p {
+  font-size: 16px;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.scoreResults p span {
+  font-weight: bold;
+  color: #111827;
+  margin-left: 8px;
+}
+
+.container .resetButton {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.resetButton:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
 }

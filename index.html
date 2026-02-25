@@ -11,23 +11,26 @@
 
 <body>
 
-  <div class="buttons">
-    <button onclick="game(this)" class="click"></button>
-    <button onclick="game(this)" class="click"></button>
-    <button onclick="game(this)" class="click"></button>
-    <button onclick="game(this)" class="click"></button>
-    <button onclick="game(this)" class="click"></button>
-    <button onclick="game(this)" class="click"></button>
-    <button onclick="game(this)" class="click"></button>
-    <button onclick="game(this)" class="click"></button>
-    <button onclick="game(this)" class="click"></button>
+  <div class="container">
+    <h2>SOS Oyunu</h2>
+    <div class="buttons">
+      <button onclick="game(this)" class="click"></button>
+      <button onclick="game(this)" class="click"></button>
+      <button onclick="game(this)" class="click"></button>
+      <button onclick="game(this)" class="click"></button>
+      <button onclick="game(this)" class="click"></button>
+      <button onclick="game(this)" class="click"></button>
+      <button onclick="game(this)" class="click"></button>
+      <button onclick="game(this)" class="click"></button>
+      <button onclick="game(this)" class="click"></button>
+    </div>
+    <div class="scoreResults">
+      <p>X Oyuncu Skoru : <span id="scoreXResult"></span></p>
+      <p>O Oyuncu Skoru : <span id="scoreOResult"></span></p>
+      <p>Beraberlik Skoru : <span id="scoreDrawResult"></span></p>
+    </div>
+    <button onclick="resetGame()" class="resetButton">Yeniden Oyna</button>
   </div>
-
-  <p>X Oyuncu Skoru <span id="scoreXResult"></span></p>
-  <p>O Oyuncu Skoru <span id="scoreOResult"></span></p>
-  <p>Beraberlik Skoru <span id="scoreDrawResult"></span></p>
-
-  <button onclick="resetGame()">Yeniden Oyna</button>
 
 </body>
 
